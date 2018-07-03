@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet">
+<link rel="stylesheet" href="style_anastasia.css">
+</head>
+
+
+<body>
+  <header>
+<!-- Just an image -->
+<nav class="navbar border-bottom border-dark navbar-light">
+  <a class="navbar-brand" href="https://jedha.co" target="_blank">
+    <img src="assets/logo_facebook.png" width="70" height="70" alt="">
+  </a>
+  <li class="nav-item">
+    <a class="nav-item" href="https://jedha.co" target="_blank">
+    <button class="navbar-btn btn btn-outline-success my-2 my-sm-0" style="border-radius:100px;border-color:#94D6C5;">Apprenez à coder Anastasia</button>
+  </a>
+  </li>
+</nav>
+</header>
+
+  <div id="section_1" class="container-fluid d-flex align-items-center justify-content-center mt-5">
+    <div class="d-flex flex-column mr-5">
+      <h1 class="align-self-end">ANASTASIA</h1>
+      <h2 class="align-self-end">de JEDHA</h2>
+    </div>
+    <img src="assets/Anastasia_landing.png" width=25% height=100%>
+  </div>
+
+<div id="section_2" class="container-fluid d-flex flex-column align-items-center p-4">
+  <h2>QUI VA GAGNER LE MATCH ?</h2>
+    <div class="d-flex flex-row p-3 col-8">
+      <input type="text" class="form-control col-5 align-self-center" id="equipe1" placeholder="Equipe 1" style="border-radius:100px; box-shadow: 2px 2px 2px #0C444B;">
+      <span class="vs col-2 d-flex justify-content-center align-self-center">VS</span>
+      <input type="text" class="form-control col-5 align-self-center" id="equipe2" placeholder="Equipe 2" style="border-radius:100px; box-shadow: 2px 2px 2px #0C444B;">
+    </div>
+    <button class="calcul btn col-3 m-5" style="border-radius:100px; background-color:#0C444B; box-shadow: 2px 2px 2px #0C444B; color:white; font-size:1.3rem">Calculer</button>
+    <img class='wheel' src='assets/roue.png' width='10%' height='100%' alt=''>
+    <p id="animation_1" class="m-5">calcul des probabilités</p>
+    <p id="animation_2" class="m-5">J'y suis presque</p>
+    <p id="animation_3" class="m-5">j'ai trouvé !</p>
+    <div class="results d-flex flex-column align-items-center">
+      <span class="resultat mt-2 mr-4 ml-4 mb-0">X%</span>
+      <span class="gagnant">EQUIPE GAGNANTE</span>
+    </div>
+</div>
+
+<div class="container-fluid d-flex flex-column align-items-center">
+  <h2 class="mt-4">CURIEUX ?</h2>
+  <a class='container-fluid d-flex justify-content-center' href="https://www.jedha.co/blog/predire-qui-va-gagner-la-coupe-du-monde-de-football" target="_blank">
+    <button class="btn m-4" style="border-radius:100px; background-color:#0C444B; box-shadow: 2px 2px 2px #0C444B; color:white; font-size:1.3rem; width:60%;"><b>REGARDEZ LE CODE COMPLET DE L'ALGORITHME</b></button>
+  </a>
+</div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <script>
+    $(".results > span").toggle();
+    $(".wheel").hide()
+    $("#animation_1").hide()
+    $("#animation_2").hide()
+    $("#animation_3").hide();
+
+      $(".calcul").click(function(){
+        $(".results > span").toggle()
+        $(".wheel").hide()
+        $(".wheel").show().rotate({count:6, duration:3})
+        $('#animation_1').show(800, function(){
+          $("#animation_1").fadeOut(3000, function(){
+            $("#animation_2").show(500, function(){
+              $("#animation_2").fadeOut(3000, function(){
+                $("#animation_3").show(function(){
+                  $("#animation_3").fadeOut(2000,function(){
+                    $(".results > span").show(400)
+                    $(".wheel").hide()
+                    if ($("#equipe1").val().toLowerCase()=="france" && $("#equipe2").val().toLowerCase()=="argentine" || $("#equipe1").val().toLowerCase()=="argentine" && $("#equipe2").val().toLowerCase()=="france") {
+                      $(".results").replaceWith('<div class="results d-flex flex-column align-items-center"><span class="resultat mt-2 mr-4 ml-4 mb-0">45%</span><span class="gagnant">FRANCE GAGNANTE</span></div>')
+                    } else if ($("#equipe1").val().toLowerCase()=="belgique" && $("#equipe2").val().toLowerCase()=="japon" || $("#equipe1").val().toLowerCase()=="japon" && $("#equipe2").val().toLowerCase()=="belgique") {
+                      $(".results").replaceWith('<div class="results d-flex flex-column align-items-center"><span class="resultat mt-2 mr-4 ml-4 mb-0">71%</span><span class="gagnant">BELGIQUE GAGNANTE</span></div>')
+                    } else if ($("#equipe1").val().toLowerCase()=="brésil" && $("#equipe2").val().toLowerCase()=="mexique" || $("#equipe1").val().toLowerCase()=="bresil" && $("#equipe2").val().toLowerCase()=="mexique" || $("#equipe1").val().toLowerCase()=="mexique" && $("#equipe2").val().toLowerCase()=="brésil" || $("#equipe1").val().toLowerCase()=="mexique" && $("#equipe2").val().toLowerCase()=="bresil") {
+                      $(".results").replaceWith('<div class="results d-flex flex-column align-items-center"><span class="resultat mt-2 mr-4 ml-4 mb-0">64%</span><span class="gagnant">BRESIL GAGNANT</span></div>')
+                    } else if ($("#equipe1").val().toLowerCase()=="colombie" && $("#equipe2").val().toLowerCase()=="angleterre" || $("#equipe1").val().toLowerCase()=="angleterre" && $("#equipe2").val().toLowerCase()=="colombie") {
+                      $(".results").replaceWith('<div class="results d-flex flex-column align-items-center"><span class="resultat mt-2 mr-4 ml-4 mb-0">69%</span><span class="gagnant">ANGLETERRE GAGNANTE</span></div>')
+                    } else if ($("#equipe1").val().toLowerCase()=="croatie" && $("#equipe2").val().toLowerCase()=="danemark" || $("#equipe1").val().toLowerCase()=="danemark" && $("#equipe2").val().toLowerCase()=="croatie") {
+                      $(".results").replaceWith('<div class="results d-flex flex-column align-items-center"><span class="resultat mt-2 mr-4 ml-4 mb-0">61%</span><span class="gagnant">DANEMARK GAGNANT</span></div>')
+                    } else if ($("#equipe1").val().toLowerCase()=="uruguay" && $("#equipe2").val().toLowerCase()=="portugal" || $("#equipe1").val().toLowerCase()=="portugal" && $("#equipe2").val().toLowerCase()=="uruguay") {
+                      $(".results").replaceWith('<div class="results d-flex flex-column align-items-center"><span class="resultat mt-2 mr-4 ml-4 mb-0">56%</span><span class="gagnant">PORTUGAL GAGNANT</span></div>')
+                    } else if ($("#equipe1").val().toLowerCase()=="suède" && $("#equipe2").val().toLowerCase()=="suisse" || $("#equipe1").val().toLowerCase()=="suisse" && $("#equipe2").val().toLowerCase()=="suède" || $("#equipe1").val().toLowerCase()=="suisse" && $("#equipe2").val().toLowerCase()=="suede" || $("#equipe1").val().toLowerCase()=="suede" && $("#equipe2").val().toLowerCase()=="suisse") {
+                      $(".results").replaceWith('<div class="results d-flex flex-column align-items-center"><span class="resultat mt-2 mr-4 ml-4 mb-0">64%</span><span class="gagnant">SUISSE GAGNANTE</span></div>')
+                    } else if ($("#equipe1").val().toLowerCase()=="espagne" && $("#equipe2").val().toLowerCase()=="russie" || $("#equipe1").val().toLowerCase()=="russie" && $("#equipe2").val().toLowerCase()=="espagne") {
+                      $(".results").replaceWith('<div class="results d-flex flex-column align-items-center"><span class="resultat mt-2 mr-4 ml-4 mb-0">66%</span><span class="gagnant">ESPAGNE GAGNANTE</span></div>')
+                    } else {
+                      $(".results").replaceWith('<div class="results d-flex flex-column align-items-center"><span class="gagnant">OUPS Désolé, je ne sais pas encore :/</span></div>')
+                    }
+                  })
+                })
+              })
+            });
+          });
+        });
+      });
+
+        $.fn.rotate=function(options) {
+          var $this=$(this), prefixes, opts, wait4css=0;
+          prefixes=['-Webkit-', '-Moz-', '-O-', '-ms-', ''];
+          opts=$.extend({
+            startDeg: false,
+            endDeg: 360,
+            duration: 1,
+            count: 1,
+            easing: 'linear',
+            animate: {},
+            forceJS: false
+          }, options);
+
+          function supports(prop) {
+            var can=false, style=document.createElement('div').style;
+            $.each(prefixes, function(i, prefix) {
+              if (style[prefix.replace(/\-/g, '')+prop]==='') {
+                can=true;
+              }
+            });
+            return can;
+          }
+
+          function prefixed(prop, value) {
+            var css={};
+            if (!supports.transform) {
+              return css;
+            }
+            $.each(prefixes, function(i, prefix) {
+              css[prefix.toLowerCase()+prop]=value || '';
+            });
+            return css;
+          }
+
+          function generateFilter(deg) {
+            var rot, cos, sin, matrix;
+            if (supports.transform) {
+              return '';
+            }
+            rot=deg>=0 ? Math.PI*deg/180 : Math.PI*(360+deg)/180;
+            cos=Math.cos(rot);
+            sin=Math.sin(rot);
+            matrix='M11='+cos+',M12='+(-sin)+',M21='+sin+',M22='+cos+',SizingMethod="auto expand"';
+            return 'progid:DXImageTransform.Microsoft.Matrix('+matrix+')';
+          }
+
+          supports.transform=supports('Transform');
+          supports.transition=supports('Transition');
+
+          opts.endDeg*=opts.count;
+          opts.duration*=opts.count;
+
+          if (supports.transition && !opts.forceJS) { // CSS-Transition
+            if ((/Firefox/).test(navigator.userAgent)) {
+              wait4css=(!options||!options.animate)&&(opts.startDeg===false||opts.startDeg>=0)?0:25;
+            }
+            $this.queue(function(next) {
+              if (opts.startDeg!==false) {
+                $this.css(prefixed('transform', 'rotate('+opts.startDeg+'deg)'));
+              }
+              setTimeout(function() {
+                $this
+                  .css(prefixed('transition', 'all '+opts.duration+'s '+opts.easing))
+                  .css(prefixed('transform', 'rotate('+opts.endDeg+'deg)'))
+                  .css(opts.animate);
+              }, wait4css);
+
+              setTimeout(function() {
+                $this.css(prefixed('transition'));
+                if (!opts.persist) {
+                  $this.css(prefixed('transform'));
+                }
+                next();
+              }, (opts.duration*1000)-wait4css);
+            });
+
+          } else { // JavaScript-Animation + filter
+            if (opts.startDeg===false) {
+              opts.startDeg=$this.data('rotated') || 0;
+            }
+            opts.animate.perc=100;
+
+            $this.animate(opts.animate, {
+              duration: opts.duration*1000,
+              easing: $.easing[opts.easing] ? opts.easing : '',
+              step: function(perc, fx) {
+                var deg;
+                if (fx.prop==='perc') {
+                  deg=opts.startDeg+(opts.endDeg-opts.startDeg)*perc/100;
+                  $this
+                    .css(prefixed('transform', 'rotate('+deg+'deg)'))
+                    .css('filter', generateFilter(deg));
+                }
+              },
+              complete: function() {
+                if (opts.persist) {
+                  while (opts.endDeg>=360) {
+                    opts.endDeg-=360;
+                  }
+                } else {
+                  opts.endDeg=0;
+                  $this.css(prefixed('transform'));
+                }
+                $this.css('perc', 0).data('rotated', opts.endDeg);
+              }
+            });
+          }
+
+          return $this;
+        };
+    </script>
+</body>

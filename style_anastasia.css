@@ -1,0 +1,57 @@
+* {
+  font-family: Montserrat;
+}
+
+li {
+  list-style: none;
+}
+
+.navbar-btn{
+  color:#94D6C5;
+}
+
+.navbar-btn:hover{
+  color:white;
+  background-color: #94D6C5;
+}
+
+
+#section_1 {
+  margin-bottom: -50px;
+}
+#section_2 {
+  background-color:#00DBD0;
+}
+
+h1 {
+  color:#0C444B;
+  font-size: 100px;
+  font-weight:200;
+}
+
+h2 {
+  color:#0C444B;
+  font-weight:700;
+}
+
+input{
+  height:3rem;
+}
+
+.vs {
+  color:#00DBD0;
+  font-size: 4rem;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+.resultat {
+  color:white;
+  font-size:5rem;
+  font-weight:700;
+}
+
+.gagnant {
+  color:#0C444B;
+  font-size: 2rem;
+  font-weight:700;
+}
