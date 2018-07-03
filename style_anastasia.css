@@ -1,3 +1,5 @@
+@font-size-base
+
 * {
   font-family: Montserrat;
 }
@@ -17,7 +19,8 @@ li {
 
 
 #section_1 {
-  margin-bottom: -50px;
+  margin-bottom: -30px;
+  min-height: 200px;
 }
 #section_2 {
   background-color:#00DBD0;
@@ -25,7 +28,7 @@ li {
 
 h1 {
   color:#0C444B;
-  font-size: 100px;
+  font-size:3rem;
   font-weight:200;
 }
 
@@ -40,18 +43,31 @@ input{
 
 .vs {
   color:#00DBD0;
-  font-size: 4rem;
+  font-size:2rem;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+p {
+  color:white;
+}
+
+.wheel {
+  height:100%;
+  width: 20%;
 }
 
 .resultat {
   color:white;
-  font-size:5rem;
   font-weight:700;
 }
 
 .gagnant {
   color:#0C444B;
-  font-size: 2rem;
   font-weight:700;
+}
+
+@media (min-width: 768px) {
+  .wheel {
+    width:10%
+  }
 }
