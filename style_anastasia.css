@@ -70,6 +70,7 @@ p {
 }
 
 .resultat, .gagnant {
+  text-align: center;
   font-size:2rem;
 }
 
