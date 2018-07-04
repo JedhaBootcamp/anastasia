@@ -33,6 +33,11 @@ h1 {
 h2 {
   color:#0C444B;
   font-weight:700;
+  font-size:1.7rem;
+}
+
+.subtitle {
+  font-size:1rem;
 }
 
 input{
@@ -64,8 +69,20 @@ p {
   font-weight:700;
 }
 
+.resultat, .gagnant {
+  font-size:2rem;
+}
+
 @media (min-width: 768px) {
   .wheel {
     width:10%
+  }
+
+  h1 {
+    font-size:4.5rem;
+  }
+
+  h2, .subtitle {
+    font-size:2rem;
   }
 }
